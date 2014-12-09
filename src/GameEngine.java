@@ -4,7 +4,8 @@ public class GameEngine
 {
        int rNum = 0;
        static int Throw = 0;
-       int count = 0;
+       static String lastValueThrown = null;
+       int countNumberOfDices = 0;
        int d1 = 0;
        int d2 = 0;
        int d3 = 0;
@@ -22,9 +23,13 @@ public class GameEngine
        {
               // Generate a random number in the range of
               //     1 through 6.
-              d1 = randNum.nextInt(6) + 1;
+    	   	  countNumberOfDices++;
+    	   	  d1 = randNum.nextInt(6) + 1;
+              countNumberOfDices++;
               d2 = randNum.nextInt(6) + 1;
+              countNumberOfDices++;
               d3 = randNum.nextInt(6) + 1;
+              
               Throw = d1 + d2 + d3;
        } // end constructor GameEngine
 
@@ -77,9 +82,8 @@ public class GameEngine
               		{
               			throwSum = 6;
               		}
-
-              // Return the computer's choice.
-              return getChoice(throwSum);
+              		// Return the computer's choice.
+              		return getChoice(throwSum);
     } // end getThrow method
 
        // Method should generate a random number and
@@ -94,10 +98,18 @@ public class GameEngine
               		{
               			Throw = 6;
               		}
-              
                      // Return the computer's choice.
                      return getChoice(Throw);
        } // end computerChoice method
 
+    // ToString method that returns the number of dices and last value thrown
+    public String toString(int rNum) 
+    {
+        countNumberOfDices = rNum;
+    	System.out.println("\nGameEngine ToString Method:\nThe number of dices = " + countNumberOfDices);
+    	lastValueThrown = Integer.toString(Throw);
+        System.out.println("The last value thrown = " + lastValueThrown);
+        return lastValueThrown; 
+	}
      
 } // end class GameEngine

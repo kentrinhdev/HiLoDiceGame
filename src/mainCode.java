@@ -20,6 +20,7 @@ public class mainCode
               String play;
               String output;
               Scanner scan = new Scanner(System.in);
+              GameEngine tuString = new GameEngine();
               DetermineWinner winner = new DetermineWinner();
            
               System.out.println("Welcome to the Hi-Lo Dice Game!");
@@ -148,6 +149,8 @@ public class mainCode
        while(play.equalsIgnoreCase("YES"));
        // Exit outside Do-While Loop
 
+       
+       tuString.toString(dNum);
        System.out.println( "\n+++ | Total Score | +++ " + "\n-----------------------" +
 							"\n  Correct Guesses = " + winner.winCount +
 							"\n   Wrong Guesses = " + winner.loseCount +
